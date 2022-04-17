@@ -1,0 +1,40 @@
+ID	Student	Email1	Email2	Phone	Subject
+1	Maitree Manna	NULL	maitree@gmail.com	123456789	Maths
+2	Malay Mondal	malay@gmail.com	mondal@gmail.com	NULL	History
+3	Sita kumar	NULL	NULL		Science
+4	Ritu Khanna	ritu@gmail.com	khanna@gmail.com	213456789	English
+5	Pooja Yadav	pooja@gmail.com	Yadav@gmail.com	321456987	NULL
+
+
+
+SELECT 
+    ID, 
+    Student,
+    ISNULL(Subject,'Missing') AS Subject
+FROM tb_student
+ORDER BY ID
+
+
+ID	Student	Subject
+1	Maitree Manna	Maths
+2	Malay Mondal	History
+3	Sita kumar	Science
+4	Ritu Khanna	English
+5	Pooja Yadav	missing
+
+
+SELECT 
+    ID, 
+    Student,
+    COALESCE(Email1, Email2, 'N/A') AS Primary_Email
+FROM tb_student
+ORDER BY ID
+
+ID	Student	Primary_email	
+1	Maitree Manna	maitree@gmail.com	
+2	Malay Mondal	malay@gmail.com	
+3	Sita kumar	N/A	
+4	Ritu Khanna	ritu@gmail.com	
+5	Pooja Yadav	pooja@gmail.com	
+
+
